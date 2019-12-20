@@ -3,15 +3,24 @@ from sqlite3 import Error
   
 def create_connection(db_file):
     conn = None
-    cur = None
+    
     try:
         conn = sqlite3.connect(db_file)
         print('Successfully connect to db')
     except Error as e:
         print(e)
 
+    return conn
+
+def insert_data(conn, table, params, values):
+    questStr = "?"
+    for x in values[1:]:    #[1:] štarta pri 2 elementu in gre do konca
+        questStr += ',?'
+    
+    try:
         sql = ''' INSERT INTO '''+table+''' ('''+params+''')
                 VALUES('''+questStr+''') '''
+
         cur = conn.cursor()
         cur.execute(sql, values)
         print('Successfully insert data')
