@@ -12,6 +12,19 @@ def create_connection(db_file):
 
     return conn
 
+def run_query(conn, sql):
+    try:
+        cur = conn.cursor()
+        cur.execute(sql)
+        rows = cur.fetchall()
+        print('Successfully run query')
+        return rows
+
+    except Error as e:
+        print(e)
+        return ''
+
+
 def insert_data(conn, table, params, values):
     questStr = "?"
     for x in values[1:]:    #[1:] štarta pri 2 elementu in gre do konca
@@ -33,9 +46,9 @@ def insert_data(conn, table, params, values):
         return ''
 
 
-def get_data_all(conn):
+def get_data_all(conn, table):
     cur = conn.cursor()
-    cur.execute("SELECT * FROM test_table")
+    cur.execute("SELECT * FROM "+table)
  
     rows = cur.fetchall()
  
@@ -43,6 +56,7 @@ def get_data_all(conn):
     # for row in rows:
     #     print(row)
     #     print(row[1])
+
 
 # tole se zazene ko je to main program ni klican iz druge kode
 if __name__ == '__main__':
