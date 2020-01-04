@@ -24,7 +24,8 @@ def run_query(conn, sql):
         print(e)
         return ''
 
-
+# params = "created_by_service,library_user,status,days_to_expire,text"
+# values = ('1','MASA',str(cobissMasa.status.name),cobissMasa.minDays,cobissMasa.error)
 def insert_data(conn, table, params, values):
     questStr = "?"
     for x in values[1:]:    #[1:] štarta pri 2 elementu in gre do konca
