@@ -104,7 +104,7 @@ class Cobiss:
                 self.minDays = delta.days
 
 
-        if self.minDays < 3:
+        if self.minDays < 4:
             print("Book will expire!")
             self.status = jan_enum.EStatusLibrary.EXPIRE_SOON
 
