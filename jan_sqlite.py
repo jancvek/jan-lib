@@ -58,6 +58,26 @@ def get_data_all(conn, table):
     #     print(row)
     #     print(row[1])
 
+# todo: ne spada ravno v ta lib
+def update_data_daily_situation(conn, table, id, values):
+    print("test111")
+    try:
+        sql =   ''' UPDATE '''+table+''' 
+                SET is_complete = 1, filling = ?, sex = ?, a_init = ?, red_day = ?, additional = ? 
+                WHERE id='''+ id
+
+        cur = conn.cursor()
+        cur.execute(sql, values)
+        print('Successfully insert data')
+        print('SQL: '+sql)
+        print('values: '+str(values))
+    except Error as e:
+        print(e)
+
+    if cur:
+        return cur.lastrowid
+    else:
+        return ''
 
 # tole se zazene ko je to main program ni klican iz druge kode
 if __name__ == '__main__':
