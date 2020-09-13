@@ -63,7 +63,7 @@ def update_data_daily_situation(conn, table, id, values):
     print("test111")
     try:
         sql =   ''' UPDATE '''+table+''' 
-                SET is_complete = 1, filling = ?, sex = ?, a_init = ?, red_day = ?, additional = ? 
+                SET is_complete = 1, filling = ?, sex = ?, a_init = ?, red_day = ?, bs = ?, additional = ? 
                 WHERE id='''+ id
 
         cur = conn.cursor()
