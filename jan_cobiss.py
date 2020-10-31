@@ -5,7 +5,7 @@ import jan_enum
 
 # -----ADDED TO RUN BROWSER HEADLESS-----
 #LOOK AT: https://blog.testproject.io/2018/02/20/chrome-headless-selenium-python-linux-servers/
-from pyvirtualdisplay import Display 
+#from pyvirtualdisplay import Display 
 
 class Cobiss:
 
@@ -24,8 +24,8 @@ class Cobiss:
     def checkCobiss(self):
         print('Check Cobiss running...')
 
-        display = Display(visible=0, size=(1024, 768)) 
-        display.start() 
+        #display = Display(visible=0, size=(1024, 768)) 
+        #display.start() 
 
         for x in range(3):
 
@@ -35,13 +35,18 @@ class Cobiss:
 
             #wait to script bild whole web page
             time.sleep(2)
+            
+            curr = driver.find_element_by_xpath("//input[@class='select2-search__field']") 
+            curr.send_keys("siktrz")
 
-            driver.find_element_by_xpath("//div[@class='tableField']/div[1]/div[1]").click()
+            time.sleep(5)
+
+            driver.find_element_by_xpath("//li[@class='select2-results__option select2-results__option--highlighted']").click()
 
             #wait to dropdown bild (1000 inputs)
             time.sleep(3)
 
-            driver.find_element_by_xpath("//div[@class='tableField']/div[1]/div[2]/div[1]/div[@data-value='siktrz']").click()
+            #driver.find_element_by_xpath("//div[@class='tableField']/div[1]/div[2]/div[1]/div[@data-value='siktrz']").click()
 
             libMemberID = driver.find_element_by_id("libMemberID")
             password = driver.find_element_by_id("password1")
