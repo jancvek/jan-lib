@@ -24,8 +24,8 @@ class Cobiss:
     def checkCobiss(self):
         print('Check Cobiss running...')
 
-        #display = Display(visible=0, size=(1024, 768)) 
-        #display.start() 
+        display = Display(visible=0, size=(1024, 768)) 
+        display.start() 
 
         for x in range(3):
 
