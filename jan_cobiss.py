@@ -5,7 +5,7 @@ import jan_enum
 
 # -----ADDED TO RUN BROWSER HEADLESS-----
 #LOOK AT: https://blog.testproject.io/2018/02/20/chrome-headless-selenium-python-linux-servers/
-#from pyvirtualdisplay import Display 
+from pyvirtualdisplay import Display 
 
 class Cobiss:
 
